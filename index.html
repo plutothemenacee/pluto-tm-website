@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090510">
+  <meta name="description" content="Enter the world of Pluto TM. Discover music, videos, and new releases.">
+  <title>PLUTO TM — Official Website</title>
+
+  <style>
+    :root {
+      --bg: #090510;
+      --panel: #120b20;
+      --purple: #a970ff;
+      --bright: #d5b8ff;
+      --text: #f8f3ff;
+      --muted: #a79bb9;
+      --border: #38234f;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 80% 10%, #321653 0, transparent 36%),
+        radial-gradient(ellipse at 10% 45%, #170d2b 0, transparent 40%),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 5, 16, .88);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--bright);
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: .8rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a:hover,
+    .stream:hover { color: var(--bright); }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      padding: 70px 0;
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 10vw, 7rem);
+      line-height: .95;
+      letter-spacing: -5px;
+      margin: 18px 0;
+      text-shadow: 0 0 35px #9c55ff70;
+    }
+
+    h2 { letter-spacing: 2px; }
+
+    .hero p {
+      max-width: 480px;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid var(--purple);
+      border-radius: 4px;
+      color: var(--bright);
+      font-weight: 800;
+      font-size: .8rem;
+      letter-spacing: 1.5px;
+    }
+
+    .button.primary {
+      background: var(--purple);
+      color: #140923;
+    }
+
+    section { padding: 55px 0; }
+
+    .section-heading {
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      margin: 5px 0;
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+
+    .streaming {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stream {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+      padding: 20px 8px;
+      font-weight: 700;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .stream:hover {
+      border-color: var(--purple);
+      transform: translateY(-3px);
+    }
+
+    .stream span {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 16px;
+    }
+
+    .releases {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .release-art {
+      aspect-ratio: 1;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 50% 45%, #8b42df, #32164f 32%,
+                        #10091b 68%);
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .release h3 {
+      margin: 12px 0 2px;
+      font-size: .95rem;
+      letter-spacing: 1px;
+    }
+
+    .release p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .release .button {
+      margin-top: 12px;
+      padding: 8px 14px;
+    }
+
+    .about {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #10091b99;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (min-width: 700px) {
+      .streaming { grid-template-columns: repeat(6, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      nav { align-items: flex-start; padding: 18px 0; flex-direction: column; }
+      .nav-links { gap: 14px; }
+      h1 { letter-spacing: -2px; }
+      .releases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .streaming { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">PLUTO TM</a>
+      <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#music">MUSIC</a>
+        <a href="#videos">VIDEOS</a>
+        <a href="#about">ABOUT</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <div class="eyebrow">Independent artist · Enter the universe</div>
+        <h1>PLUTO<br>TM.</h1>
+        <p>
+          Music from another world. Explore the releases,
+          find your favorite streaming platform, and tap in.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#music">LISTEN NOW ↗</a>
+          <a class="button" href="#releases">EXPLORE MUSIC</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="music">
+      <div class="section-heading">
+        <div class="eyebrow">One link. Every platform.</div>
+        <h2>STREAM PLUTO TM</h2>
+      </div>
+
+      <div class="streaming">
+        <a class="stream" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer"><span>◉</span>Spotify ↗</a>
+        <a class="stream" href="https://music.apple.com/" target="_blank" rel="noopener noreferrer"><span>♫</span>Apple Music ↗</a>
+        <a class="stream" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><span>▶</span>YouTube ↗</a>
+        <a class="stream" href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer"><span>☁</span>SoundCloud ↗</a>
+        <a class="stream" href="https://music.amazon.com/" target="_blank" rel="noopener noreferrer"><span>♪</span>Amazon Music ↗</a>
+        <a class="stream" href="https://tidal.com/" target="_blank" rel="noopener noreferrer"><span>◆</span>TIDAL ↗</a>
+      </div>
+      <p class="note">These are temporary platform links. We'll replace them with your artist pages and music links.</p>
+    </section>
+
+    <section class="container" id="releases">
+      <div class="section-heading">
+        <div class="eyebrow">From the universe</div>
+        <h2>FEATURED RELEASES</h2>
+      </div>
+
+      <div class="releases">
+        <article class="release">
+          <div class="release-art">✦</div>
+          <h3>YOUR LATEST SINGLE</h3>
+          <p>Single · Add release date</p>
+          <a class="button" href="#music">LISTEN ↗</a>
+        </article>
+
+        <article class="release">
+          <div class="release-art">☄</div>
+          <h3>YOUR FAVORITE TRACK</h3>
+          <p>Single · Add release date</p>
+          <a class="button" href="#music">LISTEN ↗</a>
+        </article>
+
+        <article class="release">
+          <div class="release-art">◉</div>
+          <h3>YOUR PROJECT</h3>
+          <p>EP / Album · Add release date</p>
+          <a class="button" href="#music">LISTEN ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="videos">
+      <div class="container">
+        <div class="eyebrow">Visual transmissions</div>
+        <h2>MUSIC VIDEOS</h2>
+        <p>Official videos and visuals coming soon.</p>
+        <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">WATCH ON YOUTUBE ↗</a>
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <div class="eyebrow">The artist behind the sound</div>
+      <h2>WELCOME TO MY UNIVERSE.</h2>
+      <p>Welcome to the official home of Pluto TM. Music, visuals, and everything coming next — all in one place.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> PLUTO TM</span>
+      <span>MUSIC · ART · FOREVER</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
